@@ -56,4 +56,4 @@ RUN set -x \
 	&& git clone https://github.com/apple/swift-package-manager.git swiftpm \
 	&& git clone https://github.com/apple/swift-corelibs-xctest.git \
 	&& git clone https://github.com/apple/swift-corelibs-foundation.git \
-	&& ./swift/utils/build-script
+	&& ./swift/utils/build-script --preset=buildbot_linux_1404 installable_package=/tmp/swift.tar.gz install_destdir=/tmp/swift-install
