@@ -1,17 +1,8 @@
 FROM ubuntu:14.04
 MAINTAINER Stan Chang Khin Boon <me@lxcid.com>
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-		ca-certificates \
-		curl \
-		wget \
-	&& rm -rf /var/lib/apt/lists/*
-
-RUN gpg --keyserver hkp://pool.sks-keyservers.net \
-        --recv-keys \
-		'7463 A81A 4B2E EA1B 551F  FBCF D441 C977 412B 37AD' \
-		'1BE1 E29A 084C B305 F397  D62A 9F59 7F4D 21A5 6D5F'
-
+ENV SWIFT_PLATFORM_NAME ubuntu
+ENV SWIFT_PLATFORM_VERSION 14.04
 ENV SWIFT_VERSION 2.2
 ENV SWIFT_SNAPSHOT 2015-12-01-b
 
@@ -55,5 +46,8 @@ RUN set -x \
 	&& git clone https://github.com/apple/swift-llbuild.git llbuild \
 	&& git clone https://github.com/apple/swift-package-manager.git swiftpm \
 	&& git clone https://github.com/apple/swift-corelibs-xctest.git \
-	&& git clone https://github.com/apple/swift-corelibs-foundation.git \
-	&& ./swift/utils/build-script --preset=buildbot_linux_1404 installable_package=/tmp/swift.tar.gz install_destdir=/tmp/swift-install
+	&& git clone https://github.com/apple/swift-corelibs-foundation.git
+
+RUN set -x \
+	&& cd $SWIFT_SOURCE_ROOT \
+	&& ./swift/utils/build-script --preset=buildbot_linux_$(echo $SWIFT_PLATFORM_VERSION | tr -d .) installable_package=/tmp/swift.tar.gz install_destdir=/tmp/swift-install
