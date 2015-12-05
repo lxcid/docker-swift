@@ -11,11 +11,14 @@ docker pull lxcid/swift:latest
 
 ## FAQ
 
-### Fail to run `swift` with the following error: `error: failed to launch REPL process: process launch failed: 'A' packet returned an error: 8`.
+#### Fail to run `swift` with the following error: `error: failed to launch REPL process: process launch failed: 'A' packet returned an error: 8`.
 
 Swift REPL seems to requires access to kernel capabilities that docker dropped by default. Run your container with `--privileged` will resolve this issue.
 
-Referenced from https://github.com/swiftdocker/docker-swift/issues/9#issuecomment-162172540
+Referenced from:
+
+- https://github.com/swiftdocker/docker-swift/issues/9#issuecomment-162172540
+- https://bugs.swift.org/browse/SR-54
 
 ## Credits
 
