@@ -8,22 +8,23 @@ ENV SWIFT_SNAPSHOT 2015-12-01-b
 
 # Installing development dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
-		git \
-		cmake \
-		ninja-build \
+		ca-certificates \
 		clang \
-		uuid-dev \
-		libicu-dev \
+		cmake \
+		git \
 		icu-devtools \
+		libicu-dev \
 		libbsd-dev \
 		libedit-dev \
-		libxml2-dev \
-		libsqlite3-dev \
-		swig \
-		python \
-		libpython-dev \
 		libncurses5-dev \
+		libpython-dev \
+		libsqlite3-dev \
+		libxml2-dev \
+		ninja-build \
 		pkg-config \
+		python \
+		swig \
+		uuid-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
 # (Only for Ubuntu 14.04 LTS) Upgrade clang compiler for C++14 support and create a symlink
