@@ -8,6 +8,7 @@ docker pull lxcid/swift:latest
 
 - [`2.2-ubuntu.14.04`, `latest` (2.2/ubuntu1404/Dockerfile)](https://github.com/lxcid/docker-swift/blob/master/2.2/ubuntu1404/Dockerfile)
 - [`2.2-ubuntu.15.10` (2.2/ubuntu1510/Dockerfile)](https://github.com/lxcid/docker-swift/blob/master/2.2/ubuntu1510/Dockerfile)
+- [`master-ubuntu.14.04`, `master` (master/ubuntu1404/Dockerfile)](https://github.com/lxcid/docker-swift/blob/master/master/ubuntu1404/Dockerfile)
 
 ## Getting Started
 
