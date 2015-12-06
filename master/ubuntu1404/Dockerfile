@@ -13,9 +13,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		cmake \
 		git \
 		icu-devtools \
-		libicu-dev \
 		libbsd-dev \
 		libedit-dev \
+		libicu-dev \
 		libncurses5-dev \
 		libpython-dev \
 		libsqlite3-dev \
@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		ninja-build \
 		pkg-config \
 		python \
+		rsync \
 		swig \
 		uuid-dev \
 	&& rm -rf /var/lib/apt/lists/*
