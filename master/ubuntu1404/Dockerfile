@@ -30,7 +30,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # (Only for Ubuntu 14.04 LTS) Upgrade clang compiler for C++14 support and create a symlink
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        clang-3.6 \
+		clang-3.6 \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& update-alternatives --install /usr/bin/clang clang /usr/bin/clang-3.6 100 \
 	&& update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.6 100
