@@ -48,8 +48,12 @@ RUN set -x \
 	&& git clone https://github.com/apple/swift-llbuild.git llbuild \
 	&& git clone https://github.com/apple/swift-package-manager.git swiftpm \
 	&& git clone https://github.com/apple/swift-corelibs-xctest.git \
-	&& git clone https://github.com/apple/swift-corelibs-foundation.git
+	&& git clone https://github.com/apple/swift-corelibs-foundation.git \
+	&& ./swift/utils/build-script --preset=buildbot_linux_$(echo $SWIFT_PLATFORM_VERSION | tr -d .) installable_package=/tmp/swift.tar.gz install_destdir=/tmp/swift-install \
+	&& mkdir -p /usr/local/swift \
+	&& tar -C /usr/local/swift --strip-components=1 -xzf /tmp/swift.tar.gz \
+	&& rm -rf $SWIFT_SOURCE_ROOT /tmp/*
 
-RUN set -x \
-	&& cd $SWIFT_SOURCE_ROOT \
-	&& ./swift/utils/build-script --preset=buildbot_linux_$(echo $SWIFT_PLATFORM_VERSION | tr -d .) installable_package=/tmp/swift.tar.gz install_destdir=/tmp/swift-install
+ENV PATH /usr/local/swift/bin:$PATH
+
+CMD ["swift"]
