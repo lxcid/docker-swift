@@ -22,7 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		libicu-dev \
 		libedit-dev \
 		python2.7 \
-		python2.7-dev \ 
+		python2.7-dev \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN set -x \
