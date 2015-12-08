@@ -3,8 +3,6 @@ MAINTAINER Stan Chang Khin Boon <me@lxcid.com>
 
 ENV SWIFT_PLATFORM_NAME ubuntu
 ENV SWIFT_PLATFORM_VERSION 14.04
-ENV SWIFT_VERSION 2.2
-ENV SWIFT_SNAPSHOT 2015-12-01-b
 
 # Installing development dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
