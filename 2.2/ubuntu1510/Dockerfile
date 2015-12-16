@@ -14,7 +14,7 @@ RUN gpg --keyserver hkp://pool.sks-keyservers.net \
 ENV SWIFT_PLATFORM_NAME ubuntu
 ENV SWIFT_PLATFORM_VERSION 15.10
 ENV SWIFT_VERSION 2.2
-ENV SWIFT_SNAPSHOT 2015-12-01-b
+ENV SWIFT_SNAPSHOT 2015-12-10-a
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
 		build-essential \
